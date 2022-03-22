@@ -87,8 +87,8 @@ rvm autolibs disable
 rvm install "ruby-3.0.2"
 rvm use 3.0.2 --default
 
-git clone https://github.com/chatwoot/chatwoot.git
-cd chatwoot
+git clone https://github.com/psschand16/chatbay.git
+cd chatbay
 if [[ -z "$1" ]]; then
 git checkout master;
 else
@@ -118,9 +118,9 @@ RAILS_ENV=production bundle exec rake db:reset
 EOF
 fi
 
-cp /home/chatwoot/chatwoot/deployment/chatwoot-web.1.service /etc/systemd/system/chatwoot-web.1.service
-cp /home/chatwoot/chatwoot/deployment/chatwoot-worker.1.service /etc/systemd/system/chatwoot-worker.1.service
-cp /home/chatwoot/chatwoot/deployment/chatwoot.target /etc/systemd/system/chatwoot.target
+cp /home/chatwoot/chatbay/deployment/chatwoot-web.1.service /etc/systemd/system/chatwoot-web.1.service
+cp /home/chatwoot/chatbay/deployment/chatwoot-worker.1.service /etc/systemd/system/chatwoot-worker.1.service
+cp /home/chatwoot/chatbay/deployment/chatwoot.target /etc/systemd/system/chatwoot.target
 
 systemctl enable chatwoot.target
 systemctl start chatwoot.target
@@ -136,7 +136,7 @@ echo "To configure a domain and SSL certificate, follow the guide at https://www
 echo "***************************************************************************"
 else
 curl https://ssl-config.mozilla.org/ffdhe4096.txt >> /etc/ssl/dhparam
-wget https://raw.githubusercontent.com/chatwoot/chatwoot/develop/deployment/nginx_chatwoot.conf
+wget https://raw.githubusercontent.com/psschand16/chatbay/develop/deployment/nginx_chatwoot.conf
 cp nginx_chatwoot.conf /etc/nginx/sites-available/nginx_chatwoot.conf
 certbot certonly --nginx -d $domain_name
 sed -i "s/chatwoot.domain.com/$domain_name/g" /etc/nginx/sites-available/nginx_chatwoot.conf
