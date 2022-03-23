@@ -46,8 +46,8 @@ rvm autolibs disable
 rvm install "ruby-3.0.2"
 rvm use 3.0.2 --default
 
-git clone https://github.com/chatwoot/chatwoot.git
-cd chatwoot
+git clone https://github.com/psschand16/chatbay.git
+cd chatbay
 if [[ -z "$1" ]]; then
   git checkout master;
 else
@@ -70,15 +70,15 @@ RAILS_ENV=production bundle exec rake db:reset
 rake assets:precompile RAILS_ENV=production
 EOF
 
-cp /home/chatwoot/chatwoot/deployment/chatwoot-web.1.service /etc/systemd/system/chatwoot-web.1.service
-cp /home/chatwoot/chatwoot/deployment/chatwoot-worker.1.service /etc/systemd/system/chatwoot-worker.1.service
-cp /home/chatwoot/chatwoot/deployment/chatwoot.target /etc/systemd/system/chatwoot.target
+cp /home/chatwoot/chatbay/deployment/chatwoot-web.1.service /etc/systemd/system/chatwoot-web.1.service
+cp /home/chatwoot/chatbay/deployment/chatwoot-worker.1.service /etc/systemd/system/chatwoot-worker.1.service
+cp /home/chatwoot/chatbay/deployment/chatwoot.target /etc/systemd/system/chatwoot.target
 
 systemctl enable chatwoot.target
 systemctl start chatwoot.target
 
 echo "Woot! Woot!! Chatwoot server installation is complete"
 echo "The server will be accessible at http://<server-ip>:3000"
-echo "To configure a domain and SSL certificate, follow the guide at https://www.chatwoot.com/docs/deployment/deploy-chatwoot-in-linux-vm"
+echo "To configure a domain and SSL certificate, follow the guide at https://www.nlpbay.com/docs/deployment/deploy-chatwoot-in-linux-vm"
 
 # TODO: Auto-configure Nginx with SSL certificate

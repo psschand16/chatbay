@@ -4,16 +4,16 @@ describe('#MessageFormatter', () => {
   describe('content with links', () => {
     it('should format correctly', () => {
       const message =
-        'Chatwoot is an opensource tool. [Chatwoot](https://www.chatwoot.com)';
+        'Chatwoot is an opensource tool. [Chatwoot](https://www.nlpbay.com)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Chatwoot is an opensource tool. <a title="" class="link" href="https://www.chatwoot.com" rel="noreferrer noopener nofollow" target="_blank">Chatwoot</a></p>'
+        '<p>Chatwoot is an opensource tool. <a title="" class="link" href="https://www.nlpbay.com" rel="noreferrer noopener nofollow" target="_blank">Chatwoot</a></p>'
       );
     });
     it('should format correctly', () => {
       const message =
-        'Chatwoot is an opensource tool. https://www.chatwoot.com';
+        'Chatwoot is an opensource tool. https://www.nlpbay.com';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Chatwoot is an opensource tool. <a title="" class="link" href="https://www.chatwoot.com" rel="noreferrer noopener nofollow" target="_blank">https://www.chatwoot.com</a></p>'
+        '<p>Chatwoot is an opensource tool. <a title="" class="link" href="https://www.nlpbay.com" rel="noreferrer noopener nofollow" target="_blank">https://www.nlpbay.com</a></p>'
       );
     });
   });
@@ -52,9 +52,9 @@ describe('#MessageFormatter', () => {
   describe('plain text content', () => {
     it('returns the plain text without HTML', () => {
       const message =
-        '<b>Chatwoot is an opensource tool. https://www.chatwoot.com</b>';
+        '<b>Chatwoot is an opensource tool. https://www.nlpbay.com</b>';
       expect(new MessageFormatter(message).plainText).toMatch(
-        'Chatwoot is an opensource tool. https://www.chatwoot.com'
+        'Chatwoot is an opensource tool. https://www.nlpbay.com'
       );
     });
   });

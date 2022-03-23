@@ -38,6 +38,7 @@ const state = {
 
 export const getters = {
   get: $state => $state,
+
 };
 
 export const actions = {};
